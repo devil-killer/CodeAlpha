@@ -2,17 +2,13 @@ const calculator = document.querySelector('.calculator')
 const keys = calculator.querySelector('.keys')
 const operator = calculator.querySelector('.operator')
 const display = document.querySelector('.calculator_output')
-
-
 keys.addEventListener('click', e => {
     if (e.target.matches('button')) {
         const ki = e.target
         const action = ki.dataset.action
         const kiContent = ki.textContent
         const displayedNum = display.textContent
-        const previousKeyType = calculator.dataset.previousKeyType
-
-        
+        const previousKeyType = calculator.dataset.previousKeyType        
         if (!action) {
             if (displayedNum === '0' ||previousKeyType === 'operator')
             {
@@ -46,7 +42,6 @@ keys.addEventListener('click', e => {
             const firstValue = calculator.dataset.firstValue
             const operator = calculator.dataset.operator
             const secondValue = displayedNum
-
             display.textContent = calculate(firstValue, operator, secondValue)
         }
         if(action === 'Clear')
